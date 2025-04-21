@@ -1,6 +1,10 @@
-
+import {BrowserRouter, Route , Routes} from 'react-router-dom';
 import './App.css'
-import { Test } from './Test'
+import { LandingPage } from './components/LandingPage';
+import { AboutPage } from './components/AboutPage';
+import NavBar from './components/NavBar';
+import  Footer  from './components/Footer';
+
 
 
 function App() {
@@ -8,11 +12,19 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
+    <NavBar />
+    <Routes>
+      <Route path='/' element={<LandingPage />}/>
+      <Route path='/about' element={<AboutPage />} />
+    </Routes>
+    </BrowserRouter>
+    <Footer />
       
   
-  <h2 className="text-2xl font-semibold text-purple-600">Hi</h2>
+ 
 
-  <Test />
+ 
 
 
        
