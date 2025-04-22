@@ -2,8 +2,13 @@ import React from 'react';
 import { motion } from "framer-motion";
 import Card from './Card.jsx';
 import i from '../assets/img2.png';
+import { useNavigate } from 'react-router-dom';
 
 export function LandingPage() {
+  const navigate=useNavigate();
+  const dashBoardNavigateHandler=()=>{
+
+  }
   return (
     <div className="min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4 bg-navbarColor">
       <div className="lg:flex-row flex-col lg:py-5 pt-16 lg:gap-10 gap-8 flex justify-between items-center">
@@ -31,6 +36,7 @@ export function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              onClick={dashBoardNavigateHandler}
               className="bg-custom-gradient w-40 text-white rounded-md py-2"
             >
               Manage Links
@@ -43,6 +49,7 @@ export function LandingPage() {
               }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              onClick={dashBoardNavigateHandler}
               
               className="border-btnColor border w-40 text-btnColor rounded-md  py-2 "
             >
