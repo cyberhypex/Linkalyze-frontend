@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import  Footer  from './components/Footer';
 import RegisterPage  from './components/RegisterPage';
 import { Toaster } from 'react-hot-toast';
-import { Login } from './components/Login';
+import Login  from './components/Login';
 
 
 
