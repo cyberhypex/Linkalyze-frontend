@@ -3,9 +3,12 @@ import { motion } from "framer-motion";
 import Card from './Card.jsx';
 import i from '../assets/img2.png';
 import { useNavigate } from 'react-router-dom';
+import {  useStoreContext } from '../contextApi/ContextApi.jsx';
 
 export function LandingPage() {
   const navigate=useNavigate();
+  const { token }=useStoreContext()
+  console.log("Token from landing page"+token)
   const dashBoardNavigateHandler=()=>{
 
   }
