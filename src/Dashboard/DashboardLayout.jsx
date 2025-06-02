@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import ShortenPopUp from './ShortenPopUp';
 
 import Graph from './Graph';
 import { useStoreContext } from '../contextApi/ContextApi';
 import { useFetchTotalClicks } from '../Hooks/useQuery';
-import { dummyData } from '../DummyData/data';
- // Assuming you forgot to import Loader
+
+
 
 export function DashboardLayout(props) {
+    const refetch=false;
     const { token } = useStoreContext();
     const [shortenPopUp,setShortenPopUp]=useState(false)
 
@@ -50,6 +52,11 @@ export function DashboardLayout(props) {
                         </div>
                     </>
                 )}
+                <ShortenPopUp
+          refetch={refetch}
+          open={shortenPopUp}
+          setOpen={setShortenPopUp}
+        />
             </div>
         </>
     );
