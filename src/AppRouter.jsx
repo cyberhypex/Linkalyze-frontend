@@ -10,6 +10,7 @@ import { DashboardLayout } from './Dashboard/DashboardLayout';
 import LoginPage from './components/LoginPage';
 import { Routes , Route} from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
+import ErrorPage from './components/ErrorPage';
 const AppRouter=()=>{
     return (
 <>
@@ -21,6 +22,8 @@ const AppRouter=()=>{
       <Route path='/register' element={<PrivateRoute publicPage={true}><RegisterPage /></PrivateRoute>} />
       <Route path='/login' element={<PrivateRoute publicPage={true}><LoginPage /></PrivateRoute>} />
       <Route path='/dashboard' element={<PrivateRoute publicPage={false}><DashboardLayout /></PrivateRoute>} />
+      <Route path='*' element={<ErrorPage message="We can't find the page you are looking for"/>} />
+    <Route path='/error' element={<ErrorPage />} />
     </Routes>
     <Footer />
     </>
