@@ -6,6 +6,7 @@ import { useStoreContext } from '../contextApi/ContextApi';
 import { useFetchTotalClicks } from '../Hooks/useQuery';
 import { useFetchMyShortUrls } from '../Hooks/useQuery';
 import ShortenUrlList from './ShortenUrlList';
+import { Loader } from '../components/Loader';
 
 
 
@@ -26,7 +27,7 @@ export function DashboardLayout(props) {
         <>
             <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]">
                 {loader ? (
-                    <p>Loading ....</p>
+                    <Loader />
                 ) : (
                     <>
                         <div className="lg:w-[90%] w-full mx-auto py-16">
