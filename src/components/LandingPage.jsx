@@ -10,7 +10,12 @@ export function LandingPage() {
   const { token }=useStoreContext()
   console.log("Token from landing page"+token)
   const dashBoardNavigateHandler=()=>{
-
+      if(token){
+        window.location.href="/dashboard"
+      }
+      else{
+         window.location.href = "/register";
+      }
   }
   return (
     <div className="min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4 bg-navbarColor">
