@@ -15,16 +15,14 @@ const Footer = () => {
         </p>
 
         <div className="flex space-x-6 mt-4 lg:mt-0">
-          <a href="#" className="hover:text-gray-200">
+          <a href="https://www.facebook.com/anshuman.gogoi.10485/" target="_blank"className="hover:text-gray-200">
             <FaFacebook size={24} />
           </a>
-          <a href="#" className="hover:text-gray-200">
-            <FaTwitter size={24} />
-          </a>
-          <a href="#" className="hover:text-gray-200">
+         
+          <a href="https://www.instagram.com/anshu_26__/"target="_blank" className="hover:text-gray-200">
             <FaInstagram size={24} />
           </a>
-          <a href="#" className="hover:text-gray-200">
+          <a href="https://www.linkedin.com/in/anshuman-gogoi-b99671211/"target="_blank" className="hover:text-gray-200">
             <FaLinkedin size={24} />
           </a>
         </div>
