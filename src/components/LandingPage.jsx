@@ -11,10 +11,10 @@ export function LandingPage() {
   console.log("Token from landing page"+token)
   const dashBoardNavigateHandler=()=>{
       if(token){
-        window.location.href="/dashboard"
+        navigate("/dashboard")
       }
       else{
-         window.location.href = "/register";
+         navigate("/register")
       }
   }
   return (
