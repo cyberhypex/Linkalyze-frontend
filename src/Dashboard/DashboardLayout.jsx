@@ -31,7 +31,7 @@ export function DashboardLayout(props) {
                 ) : (
                     <>
                         <div className="lg:w-[90%] w-full mx-auto py-16">
-                            <div className="h-96 relative">
+                             <div className="h-96 relative">
                                 {totalClicks.length === 0 && (
                      <div className="absolute flex flex-col  justify-center sm:items-center items-end  w-full left-0 top-0 bottom-0 right-0 m-auto">
                      <h1 className=" text-slate-800 font-serif sm:text-2xl text-[18px] font-bold mb-1">
