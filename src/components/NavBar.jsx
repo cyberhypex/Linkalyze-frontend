@@ -55,7 +55,7 @@ const Navbar = () => {
               className={`${
                 path === "/dashboard" ? "text-white font-semibold" : "text-gray-200"
               }`}
-              to="/about"
+              to="/dashboard"
             >
              DashBoard
             </Link>
