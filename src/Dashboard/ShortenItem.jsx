@@ -20,8 +20,10 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
     const [selectedUrl, setSelectedUrl] = useState("");
     const [analyticsData, setAnalyticsData] = useState([]);
 
-    const rawUrl = import.meta.env.VITE_REACT_FRONT_END_URL ;
-    const subDomain = rawUrl.replace(/^https?:\/\//, "");
+    const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
+        /^https?:\/\//,
+        ""
+      );
 
 
     const analyticsHandler = (shortUrl) => {
