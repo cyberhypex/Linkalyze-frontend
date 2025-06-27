@@ -8,7 +8,7 @@ import {  useStoreContext } from '../contextApi/ContextApi.jsx';
 export function LandingPage() {
   const navigate=useNavigate();
   const { token }=useStoreContext()
-  console.log("Token from landing page"+token)
+ // console.log("Token from landing page"+token)
   const dashBoardNavigateHandler=()=>{
       if(token){
         navigate("/dashboard")
