@@ -32,35 +32,53 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         }
         setAnalyticToggle(!analyticToggle);
     }
-
     const fetchMyShortUrl = async () => {
-        setLoader(true);
-        try {
-             const { data } = await api.get(`/api/urls/analytics/${selectedUrl}?startDate=2024-12-01T00:00:00&endDate=2025-12-31T23:59:59`, {
-                        headers: {
-                          "Content-Type": "application/json",
-                          Accept: "application/json",
-                          Authorization: "Bearer " + token,
-                        },
-                      });
-            setAnalyticsData(data);
-            setSelectedUrl("");
-            console.log(data);
-            
-        } catch (error) {
-            navigate("/error");
-            console.log(error);
-        } finally {
-            setLoader(false);
-        }
+  setLoader(true);
+  try {
+    const end = new Date();
+    const start = new Date();
+    start.setFullYear(end.getFullYear() - 1);
+
+    const startDate = start.toISOString().slice(0, 10);
+    const endDate = end.toISOString().slice(0, 10);
+
+    const { data } = await api.get(
+      `/api/urls/analytics/${selectedUrl}?startDate=${startDate}&endDate=${endDate}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+
+    let normalized = [];
+
+    if (Array.isArray(data)) {
+      normalized = data;
+    } else if (data && data.clickDate && data.count !== undefined) {
+      normalized = [data];
     }
+
+    setAnalyticsData(normalized);
+  } catch (error) {
+    console.error(error);
+    navigate("/error");
+  } finally {
+    setLoader(false);
+  }
+};
+
+
 
 
     useEffect(() => {
         if (selectedUrl) {
             fetchMyShortUrl();
         }
-    }, [selectedUrl]);
+    }, [selectedUrl,clickCount]);
+
+    
+
 
   return (
     <div className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}>

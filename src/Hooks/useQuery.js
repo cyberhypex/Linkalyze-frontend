@@ -25,27 +25,31 @@ export const useFetchMyShortUrls = (token, onError) => {
 };
 
 export const useFetchTotalClicks = (token, onError) => {
-    return useQuery({
-        queryKey: ["url-totalclick"],
-        queryFn: async () => {
-            return await api.get(
-                "/api/urls/totalClicks?startDate=2025-01-01&endDate=20256-12-31",
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                        Authorization: "Bearer " + token,
-                    },
-                }
-            );
-        },
-        select: (data) => {
-            return Object.keys(data.data).map((key) => ({
-                clickDate: key,
-                count: data.data[key],
-            }));
-        },
-        onError,
-        staleTime: 5000,
-    });
+  return useQuery({
+    queryKey: ["url-totalclick"],
+    queryFn: async () => {
+      const end = new Date();
+      const start = new Date();
+      start.setFullYear(end.getFullYear() - 1);
+
+      const startDate = start.toISOString().slice(0, 10);
+      const endDate = end.toISOString().slice(0, 10);
+
+      return api.get(
+        `/api/urls/totalClicks?startDate=${startDate}&endDate=${endDate}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+    },
+    select: (response) =>
+      Object.entries(response.data || {}).map(([date, clicks]) => ({
+        date,
+        clicks,
+      })),
+    onError,
+    staleTime: 5000,
+  });
 };

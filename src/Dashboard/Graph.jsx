@@ -20,8 +20,15 @@ ChartJS.register(
 );
 
 const Graph = ({ graphData }) => {
-  const labels = graphData?.map((item, i) => `${item.clickDate}`);
-  const userPerData = graphData?.map((item) => item.count);
+  const labels = graphData?.map(
+  (item) => item.clickDate || item.date || ""
+);
+
+const userPerData = graphData?.map(
+  (item) => item.count ?? item.clicks ?? 0
+);
+
+
 
   const data = {
     labels:
