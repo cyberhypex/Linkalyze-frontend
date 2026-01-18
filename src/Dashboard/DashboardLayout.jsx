@@ -20,8 +20,8 @@ export function DashboardLayout(props) {
     function onError() {
         console.log("ERROR");
     }
-    const { isLoading ,data: myShortenUrls ,refetch} = useFetchMyShortUrls(token, onError);
-    const { isLoading: loader, data: totalClicks } = useFetchTotalClicks(token, onError);
+    const { isLoading ,data: myShortenUrls=[] ,refetch} = useFetchMyShortUrls(token, onError);
+    const { isLoading: loader, data: totalClicks=[] } = useFetchTotalClicks(token, onError);
 
 
 
