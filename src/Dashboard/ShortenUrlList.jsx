@@ -4,7 +4,7 @@ const ShortenUrlList = ({ data }) => {
   if (!Array.isArray(data)) {
     return <p>Loading...</p>; // or return null, spinner, skeleton, etc.
   }
-  console.log(data);
+ // console.log(data);
 
   return (
     <div className='my-6 space-y-4'>
